@@ -53,20 +53,6 @@ public class Controller implements Initializable {
         Search_ListView.getItems().add("hello");
         Search_ListView.getItems().add("strange");
 
-//        Search_Text_Field.setOnKeyReleased(event -> {
-//
-//            if(Search_Text_Field.getLength() == 0) {
-//                Search_Cancel.setVisible(false);
-//                Search_ListView.setVisible(false);
-//            }
-//            else {
-//                Search_Cancel.setVisible(true);
-//                Search_ListView.setVisible(true);
-//            }
-//
-//
-//        });
-
         Search_Text_Field.setOnKeyReleased(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
