@@ -34,14 +34,14 @@ public class DictionaryManagement {
 
                 int count = 0;
                 for (int i = 0; i < line.length(); i++) {
-                    if (line.charAt(i) == '.') {
+                    if (line.charAt(i) == '<') {
                         count = i;
                         break;
                     }
                 }
 
-                String word_target = line.substring(0, count - 1);
-                String word_explain = line.substring(count + 1, line.length());
+                String word_target = line.substring(0, count);
+                String word_explain = line.substring(count, line.length());
                 Word addWord = new Word(word_target, word_explain);
                 dictionary_list.add(addWord);
 

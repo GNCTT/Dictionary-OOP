@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXListView;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -13,9 +12,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static Dictionary.Dictionary.dictionary_list;
 
 public class Controller implements Initializable {
 
@@ -46,6 +48,18 @@ public class Controller implements Initializable {
 
     @FXML
     private JFXListView<String> Search_ListView;
+
+    @FXML
+    private JFXButton Search_Left;
+
+    @FXML
+    private JFXButton Search_Right;
+
+
+    //phần kết quả
+
+    @FXML
+    private WebView Result_WebView;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,17 +94,24 @@ public class Controller implements Initializable {
 
         Search_ListView.setOnMouseClicked(event -> {
             String Chosen_Word = Search_ListView.getSelectionModel().getSelectedItem();
-            System.out.println(Chosen_Word);
             Search_Text_Field.setText(Chosen_Word);
             Search_ListView.setVisible(false);
         });
-
         Search_Button.setOnMouseClicked(event -> {
             if (Search_Text_Field.getLength() != 0) {
                 Search_ListView.setVisible(false);
+//                Result_WebView.getEngine().load(https://www.google.com/");
+                Result_WebView.getEngine().loadContent(dictionary_list.get(1).getWord_explain());
+                Result_WebView.setVisible(true);
             }
         });
 
+    }
+
+    public void Search_Word(String SWord) {
+        Search_Text_Field.setText(SWord);
+        Search_ListView.setVisible(false);
+        Search_Cancel.setVisible(true);
     }
 
 

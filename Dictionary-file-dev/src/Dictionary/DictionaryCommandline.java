@@ -20,8 +20,8 @@ public class DictionaryCommandline {
     public void DictionaryAdvance() throws FileNotFoundException{
         DictionaryManagement dcm = new DictionaryManagement();
 //        dcm.addWordInList();
-        dcm.insertFromFile("resource\\Dictionary\\dictionary.txt");
-        dcm.Dictionary_Lookup();
+        dcm.insertFromFile("resource\\Dictionary\\E_V.txt");
+//        dcm.Dictionary_Lookup();
         showAllWords();
     }
 
